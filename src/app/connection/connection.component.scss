@@ -1,0 +1,29 @@
+.connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    &__field {
+      display: flex;
+      flex-flow: column nowrap;
+      margin: 1em 2em;
+      &__label {
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+
+      &__input {
+        max-width: 400px;
+      }
+    }
+    &__submit {
+      margin: 2em 0;
+    }
+
+    &__error {
+      max-width: 400px;
+    }
+  }
+}

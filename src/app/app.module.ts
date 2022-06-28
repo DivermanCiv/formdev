@@ -10,10 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MessageModule} from "primeng/message";
 import { CardModule } from 'primeng/card'
+import { ModulesComponent } from './modules/modules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ModulesComponent,
     ConnectionComponent,
     LayoutComponent
   ],

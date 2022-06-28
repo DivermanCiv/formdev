@@ -9,6 +9,7 @@ import {ButtonModule} from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MessageModule} from "primeng/message";
+import { CardModule } from 'primeng/card'
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import {MessageModule} from "primeng/message";
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule,
     InputTextModule,
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    MessageModule
+    MessageModule,
+    AppRoutingModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

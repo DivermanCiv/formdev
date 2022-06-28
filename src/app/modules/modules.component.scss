@@ -1,0 +1,24 @@
+.list{
+    width: 85%;
+    margin: 3vw 7.5%;
+}
+
+.column {
+    float: left;
+    width: 30%;
+    margin: 1.66%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .row{
+        flex-direction: column;
+        display: flex;
+        margin-top: 5vw;
+    }
+
+    .column{
+        width: 70%;
+        margin: 5vw 15%;
+    }
+}

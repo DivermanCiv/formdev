@@ -9,6 +9,7 @@ import {ButtonModule} from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MessageModule} from "primeng/message";
+import { SignaturePanelComponent } from './signature-panel/signature-panel.component';
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
 
@@ -17,17 +18,18 @@ import { ModulesComponent } from './modules/modules.component';
     AppComponent,
     ModulesComponent,
     ConnectionComponent,
-    LayoutComponent
+    LayoutComponent,
+    SignaturePanelComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    AppRoutingModule,
     InputTextModule,
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
     MessageModule,
-    AppRoutingModule,
     CardModule
   ],
   providers: [],

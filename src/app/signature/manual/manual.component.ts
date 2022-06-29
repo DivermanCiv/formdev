@@ -10,7 +10,7 @@ import { StatusEnum } from '../../../types/Status.enum';
 export default class ManualComponent implements OnInit {
 
   students: Student[] = [];
-  selectedStudents: Student[] = [];
+  selectedStudent: Student | undefined;
   statuses =  [
     { label: this.getReadableStatus(StatusEnum.PENDING), value: StatusEnum.PENDING },
     { label: this.getReadableStatus(StatusEnum.SIGNED), value: StatusEnum.SIGNED },
@@ -18,6 +18,7 @@ export default class ManualComponent implements OnInit {
   ];
   showDialog = false;
   refreshing = false;
+  displaySignedOnlyStudents = false;
 
   constructor() { }
 
@@ -165,7 +166,11 @@ export default class ManualComponent implements OnInit {
   }
 
 
-  sendMails() {
-    alert('envoie des mails en cours (api manquante)')
+  handleManualSigning(student: Student) {
+    console.log(student);
+
+    if (this.selectedStudent) {
+      this.showDialog = true;
+    }
   }
 }

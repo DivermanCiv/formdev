@@ -28,6 +28,7 @@ import { AuthGuard } from './helpers/authGuard';
 import QrcodeComponent from './signature/qrcode/qrcode.component';
 import EmailComponent from './signature/email/email.component';
 import ManualComponent from './signature/manual/manual.component';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import ManualComponent from './signature/manual/manual.component';
     FormsModule,
     ReactiveFormsModule,
     MessageModule,
-    CardModule
+    CardModule,
+    CheckboxModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -1,1 +1,83 @@
-<p>email works!</p>
+<div class="actions">
+  <div class="switch mb-1">
+    <span class="switch-label mr-1" >{{displaySignedOnlyStudents ? 'Afficher tout les étudiants' : 'Afficher les étudiants en attente'}}</span>
+    <p-checkbox [(ngModel)]="displaySignedOnlyStudents" [binary]="true"></p-checkbox>
+  </div>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-info custom-button"
+    label="Envoyer les mails"
+    [disabled]="selectedStudents.length === 0"
+    [pTooltip]="selectedStudents.length === 0 ?
+     'Sélectionner au moins 1 élève' :
+      'Cliquer pour déclancher l\'envoie des emails de signature'"
+    (click)="sendMails()"
+  ></button>
+</div>
+<p-table
+  dataKey="id"
+  [value]="students"
+  class="students"
+  selectionMode="multiple"
+  [(selection)]="selectedStudents"
+  [scrollable]="true"
+  scrollDirection="vertical"
+  scrollHeight="flex"
+  [globalFilterFields]="['status']"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="firstName">
+        Nom
+      </th>
+      <th pSortableColumn="lastName">
+        Prénom
+      </th>
+      <th pSortableColumn="status">
+        <div class="flex justify-content-center align-items-center">
+          État
+          <p-columnFilter field="status" matchMode="equals" display="menu" [showMatchModes]="false"
+                          [showOperator]="false" [showAddButton]="false">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-dropdown [ngModel]="value" [options]="statuses" placeholder="Status" (onChange)="filter($event.value)">
+                <ng-template let-option pTemplate="item">
+                  <span [class]="'customer-badge status-' + option.value">{{getReadableStatus(option.value)}}</span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-student>
+    <tr [pSelectableRow]="student" *ngIf="displaySignedOnlyStudents ? student.status === 'pending' : student">
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>
+        <span [class]="'customer-badge status-' + student.status">{{getReadableStatus(student.status)}}</span>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="footer">
+      <div>
+        {{selectedStudents.length}} élèves sélectionnés
+      </div>
+      <div>
+        <i
+          class="pi pointer"
+          [class]="refreshing ? 'pi-spin pi-spinner' : 'pi-refresh'"
+          (click)="handleRefresh()"
+          pTooltip="Permet de rafraichir la liste"
+        ></i>
+      </div>
+    </div>
+  </ng-template>
+</p-table>
+<p-dialog [(visible)]="showDialog" id="absencesDialog" [modal]="true">
+  <ng-template pTemplate="header">
+    <span>Confirmation d'une absence</span>
+  </ng-template>
+  <app-signature-panel></app-signature-panel>
+</p-dialog>

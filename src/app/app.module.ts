@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmargementComponent } from './emargement/emargement/emargement.component';
 import {ConnectionComponent} from "./connection/connection.component";
 import { DetailedInfosModuleComponent } from './detailed-infos-module/detailed-infos-module.component';
 import { TableModule } from 'primeng/table';
@@ -32,7 +34,8 @@ import { AuthGuard } from './helpers/authGuard';
     ModulesComponent,
     ConnectionComponent,
     LayoutComponent,
-    SignaturePanelComponent
+    SignaturePanelComponent,
+    EmargementComponent
   ],
   imports: [
     BrowserModule,

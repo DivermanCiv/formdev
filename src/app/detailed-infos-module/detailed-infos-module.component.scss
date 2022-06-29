@@ -1,6 +1,8 @@
 :host {
   display: flex;
   flex: 1;
+  max-height: 100vh;
+  padding-bottom: 2em;
 
   & .left, .right {
     flex: 1;

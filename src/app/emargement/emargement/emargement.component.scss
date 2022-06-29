@@ -1,0 +1,32 @@
+.emargement{
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+}
+
+.button1{
+    color: red;
+}
+
+.button2{
+    color: green;
+}
+
+.button3{
+    color: blue;
+}
+
+
+
+.p-button{
+    border-width: 2px ;
+    height: auto;
+    display: flex;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmargementComponent } from './emargement/emargement/emargement.component';
 import {ConnectionComponent} from "./connection/connection.component";
 import {InputTextModule} from "primeng/inputtext";
 import { LayoutComponent } from './layout/layout.component';
@@ -19,7 +21,8 @@ import { ModulesComponent } from './modules/modules.component';
     ModulesComponent,
     ConnectionComponent,
     LayoutComponent,
-    SignaturePanelComponent
+    SignaturePanelComponent,
+    EmargementComponent
   ],
   imports: [
     BrowserModule,

@@ -18,15 +18,10 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
-<<<<<<< HEAD
-    "primeng": "^13.4.1",
-    "rxjs": "~7.5.0",
-=======
     "primeicons": "^5.0.0",
     "primeng": "^13.4.1",
     "rxjs": "~7.5.0",
     "signature_pad": "^4.0.5",
->>>>>>> 5ec6abeae93de6cf179cdcee6b752aacf22b98a4
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmargementComponent } from './emargement.component';
+import { ManualComponent } from './manual.component';
 
-describe('EmargementComponent', () => {
-  let component: EmargementComponent;
-  let fixture: ComponentFixture<EmargementComponent>;
+describe('ManualComponent', () => {
+  let component: ManualComponent;
+  let fixture: ComponentFixture<ManualComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmargementComponent ]
+      declarations: [ ManualComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EmargementComponent);
+    fixture = TestBed.createComponent(ManualComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

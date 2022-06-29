@@ -1,0 +1,25 @@
+<div class="buttons">
+  <h1>Choix de l'émargement</h1>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-danger mb-1 custom-button"
+    [routerLink]="['qrcode']"
+    label="QR Code"
+  ></button>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-success mb-1 custom-button"
+    [routerLink]="['manual']"
+    label="Manuel"
+  ></button>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-info mb-1 custom-button"
+    [routerLink]="['email']"
+    label="Email"
+  ></button>
+</div>
+<div><router-outlet></router-outlet></div>

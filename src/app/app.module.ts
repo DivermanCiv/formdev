@@ -24,6 +24,7 @@ import {MessageModule} from "primeng/message";
 import { SignaturePanelComponent } from './signature-panel/signature-panel.component';
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
+import { QRCodeModule } from 'angular2-qrcode';
 import { AuthGuard } from './helpers/authGuard';
 import QrcodeComponent from './signature/qrcode/qrcode.component';
 import EmailComponent from './signature/email/email.component';
@@ -66,6 +67,7 @@ import { CheckboxModule } from 'primeng/checkbox';
     ReactiveFormsModule,
     MessageModule,
     CardModule,
+    QRCodeModule,
     CheckboxModule
   ],
   providers: [AuthGuard],

@@ -25,6 +25,7 @@ import { SignaturePanelComponent } from './signature-panel/signature-panel.compo
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
 import { AuthGuard } from './helpers/authGuard';
+import { EndModuleComponent } from './end-module/end-module.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthGuard } from './helpers/authGuard';
     ConnectionComponent,
     LayoutComponent,
     SignaturePanelComponent,
-    EmargementComponent
+    EmargementComponent,
+    EndModuleComponent
   ],
   imports: [
     BrowserModule,

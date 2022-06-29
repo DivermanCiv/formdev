@@ -29,7 +29,9 @@
     pButton
     type="button"
     class="p-button-outlined p-button-success custom-button"
+    (click)="endModule()"
     label="Fin de module"
+    [pTooltip]="'Cliquez pour cloturer ce module' "
   ></button>
 </div>
 <div class="right">
@@ -125,5 +127,14 @@
         Confirmer
       </button>
     </div>
+  </div>
+</p-dialog>
+<p-dialog [baseZIndex]="100" [draggable]=false [(visible)]="showEndDialog" id="endModuleDialog">
+  <ng-template pTemplate="header">
+    <span>Confirmation de fin de module</span>
+  </ng-template>
+  <div>
+    <span class="content-title">Signez puis confirmez pour clore le module</span>
+    <app-signature-panel class="signature_panel"></app-signature-panel>
   </div>
 </p-dialog>

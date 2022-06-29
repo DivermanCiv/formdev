@@ -21,6 +21,7 @@ export class DetailedInfosModuleComponent implements OnInit {
     { label: this.getReadableStatus(StatusEnum.ABSENT), value: StatusEnum.ABSENT },
   ];
   showDialog = false;
+  showEndDialog = false;
 
   constructor() { }
 
@@ -166,6 +167,10 @@ export class DetailedInfosModuleComponent implements OnInit {
     if (this.selectedPendingStudents.length > 0) {
       this.showDialog = true;
     }
+  }
+
+  public endModule() {
+    this.showEndDialog = true
   }
 
   public handleRefresh() {

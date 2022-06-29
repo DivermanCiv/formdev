@@ -12,7 +12,6 @@ export class SignaturePanelComponent implements OnInit {
   }
 
   canvas: any
-
   signaturePad: any
 
   async ngOnInit() {

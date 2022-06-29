@@ -1,0 +1,128 @@
+<div class="left">
+  <div class="module-info">
+    <p>Module 1</p>
+    <p>Date : 24/03/22 - 28/03/22</p>
+    <p>Lieu : Salle 12</p>
+    <p>Durée : 35h</p>
+  </div>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-info mb-1 custom-button"
+    label="Émargements"
+  >
+  </button>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-danger mb-1 custom-button"
+    (click)="handleAbsences()"
+    label="Absences"
+    [disabled]="selectedPendingStudents.length === 0"
+    [pTooltip]="selectedPendingStudents.length === 0 ?
+     'Sélectionner au moins 1 étudiant en attente' :
+      'Cliquez pour confirmer les absences'"
+  >
+  </button>
+  <button
+    pButton
+    type="button"
+    class="p-button-outlined p-button-success custom-button"
+    label="Fin de module"
+  ></button>
+</div>
+<div class="right">
+  <p-table
+    dataKey="id"
+    [value]="showSelectedStudents && selectedStudents.length > 0 ? selectedStudents : students"
+    class="students"
+    selectionMode="multiple"
+    [(selection)]="selectedStudents"
+    (onRowSelect)="handleRowSelect($event.data)"
+    (onRowUnselect)="handleRowUnSelect($event.data)"
+    [scrollable]="true"
+    scrollDirection="vertical"
+    scrollHeight="flex"
+    [globalFilterFields]="['status']"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="firstName">
+          Nom
+        </th>
+        <th pSortableColumn="lastName">
+          Prénom
+        </th>
+        <th pSortableColumn="status">
+          <div class="flex justify-content-center align-items-center">
+            État
+            <p-columnFilter field="status" matchMode="equals" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="statuses" placeholder="Status" (onChange)="filter($event.value)">
+                  <ng-template let-option pTemplate="item">
+                    <span [class]="'customer-badge status-' + option.value">{{getReadableStatus(option.value)}}</span>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student>
+      <tr [pSelectableRow]="student">
+        <td>{{student.firstName}}</td>
+        <td>{{student.lastName}}</td>
+        <td>
+          <span [class]="'customer-badge status-' + student.status">{{getReadableStatus(student.status)}}</span>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="footer">
+        <div>
+          {{selectedStudents.length}} élèves sélectionnés
+        </div>
+        <div *ngIf="selectedStudents.length > 0">
+          <span class="mr-1">Afficher les selectionnés</span>
+          <p-inputSwitch [(ngModel)]="showSelectedStudents"></p-inputSwitch>
+        </div>
+        <div>
+          <i
+            class="pi pointer"
+            [class]="refreshing ? 'pi-spin pi-spinner' : 'pi-refresh'"
+            (click)="handleRefresh()"
+            pTooltip="Permet de rafraichir la liste"
+          ></i>
+        </div>
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog [(visible)]="showDialog" id="absencesDialog">
+  <ng-template pTemplate="header">
+    <span>Confirmation d'une absence</span>
+  </ng-template>
+  <div *ngFor="let current of selectedPendingStudents;  let index = index;" class="dialog-content" [class]="index !== absenceIndex ? 'not-current' : 'current'">
+    <span class="content-title">Êtes vous sûre de vouloir noter {{current.firstName}} {{current.lastName}} comme étant absent ?</span>
+    <label class="comment-label">Commentaire: <p>*<p></label>
+    <textarea pInputTextarea class="mb-1" placeholder="commentaire de l'absence" required></textarea>
+    <div class="dialog-actions">
+      <button
+        pButton
+        type="button"
+        class="p-button-outlined p-button-info"
+        (click)="handleNextAbsence(true)"
+      >
+        Annuler
+      </button>
+      <button
+        pButton
+        type="button"
+        class="p-button-outlined p-button-danger"
+        (click)="handleNextAbsence()"
+      >
+        Confirmer
+      </button>
+    </div>
+  </div>
+</p-dialog>

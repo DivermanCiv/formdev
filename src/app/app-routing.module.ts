@@ -22,6 +22,7 @@ const routes: Routes = [
       {path: 'email', component: EmailComponent},
     ]
   },
+  { path: 'intern/module/:id', component: ManualComponent}
 ];
 
 @NgModule({

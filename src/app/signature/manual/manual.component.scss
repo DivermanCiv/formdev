@@ -9,6 +9,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & .switch {
+    display: flex;
+    align-items: center;
+  }
+
+  & .switch-label {
+    max-width: 142px;
+  }
 }
 
 .students {
@@ -17,12 +26,17 @@
   max-height: 60%;
   flex: 1;
 
+  tr:hover {
+    background-color: rgba(cornflowerblue, 0.4);
+    cursor: pointer;
+  }
+
   & .footer {
     display: flex;
     min-height: 3em;
     align-items: center;
     color: white;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-color: cornflowerblue;
     padding: 0 1em;
 

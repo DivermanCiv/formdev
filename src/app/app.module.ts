@@ -5,6 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmargementComponent } from './emargement/emargement/emargement.component';
 import {ConnectionComponent} from "./connection/connection.component";
+import { DetailedInfosModuleComponent } from './detailed-infos-module/detailed-infos-module.component';
+import { TableModule } from 'primeng/table';
+import { BadgeModule } from 'primeng/badge';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TooltipModule } from 'primeng/tooltip';
 import {InputTextModule} from "primeng/inputtext";
 import { LayoutComponent } from './layout/layout.component';
 import {ButtonModule} from 'primeng/button';
@@ -14,10 +24,13 @@ import {MessageModule} from "primeng/message";
 import { SignaturePanelComponent } from './signature-panel/signature-panel.component';
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
+import { AuthGuard } from './helpers/authGuard';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConnectionComponent,
+    DetailedInfosModuleComponent,
     ModulesComponent,
     ConnectionComponent,
     LayoutComponent,
@@ -26,6 +39,18 @@ import { ModulesComponent } from './modules/modules.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    TableModule,
+    BadgeModule,
+    InputSwitchModule,
+    FormsModule,
+    DropdownModule,
+    ContextMenuModule,
+    BrowserAnimationsModule,
+    DialogModule,
+    InputTextareaModule,
+    TooltipModule,
     CommonModule,
     AppRoutingModule,
     InputTextModule,
@@ -35,7 +60,7 @@ import { ModulesComponent } from './modules/modules.component';
     MessageModule,
     CardModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

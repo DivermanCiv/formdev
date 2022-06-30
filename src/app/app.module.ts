@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import SignatureComponent from './signature/signature.component';
@@ -30,6 +31,8 @@ import QrcodeComponent from './signature/qrcode/qrcode.component';
 import EmailComponent from './signature/email/email.component';
 import ManualComponent from './signature/manual/manual.component';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -68,9 +71,11 @@ import { CheckboxModule } from 'primeng/checkbox';
     MessageModule,
     CardModule,
     QRCodeModule,
-    CheckboxModule
+    CheckboxModule,
+    AngularSignaturePadModule,
+    ToastModule
   ],
-  providers: [AuthGuard],
+  providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

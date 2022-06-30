@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../types/Student';
 import { StatusEnum } from '../../../types/Status.enum';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-manual',
@@ -8,7 +9,6 @@ import { StatusEnum } from '../../../types/Status.enum';
   styleUrls: ['./manual.component.scss']
 })
 export default class ManualComponent implements OnInit {
-
   students: Student[] = [];
   selectedStudent: Student | undefined;
   statuses =  [
@@ -20,7 +20,10 @@ export default class ManualComponent implements OnInit {
   refreshing = false;
   displaySignedOnlyStudents = false;
 
-  constructor() { }
+  constructor(
+    private messageService: MessageService
+  ) {
+  }
 
   ngOnInit(): void {
     this.students = [
@@ -170,7 +173,30 @@ export default class ManualComponent implements OnInit {
     console.log(student);
 
     if (this.selectedStudent) {
+      if(this.selectedStudent.signature && this.selectedStudent.status === StatusEnum.SIGNED) {
+        this.messageService.add({severity:'error', summary: 'Erreur', detail: `${this.selectedStudent.firstName} ${this.selectedStudent.lastName} à déjà signé`});
+        return;
+      }
       this.showDialog = true;
+    }
+  }
+
+  handleStudentSigning(event: any) {
+    if (event.closeDialog) {
+      this.showDialog = !event.closeDialog;
+    }
+
+    if (this.selectedStudent) {
+      const findSudent = this.students.find(p => p === this.selectedStudent);
+      if (findSudent) {
+        findSudent.signature = event.signature;
+        findSudent.status = StatusEnum.SIGNED
+        this.messageService.add({severity:'success', summary: 'Info', detail: `${findSudent.firstName} ${findSudent.lastName} à bien signé`});
+      }
+
+
+      // console.log(this.students);
+
     }
   }
 }

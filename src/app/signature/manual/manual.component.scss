@@ -10,12 +10,12 @@
   justify-content: center;
   align-items: center;
 
-  & .switch {
+  & .checkbox {
     display: flex;
     align-items: center;
   }
 
-  & .switch-label {
+  & .checkbox-label {
     max-width: 142px;
   }
 }
@@ -29,6 +29,10 @@
   tr:hover {
     background-color: rgba(cornflowerblue, 0.4);
     cursor: pointer;
+  }
+
+  img {
+    height: 100px;
   }
 
   & .footer {

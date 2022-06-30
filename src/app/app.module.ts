@@ -34,6 +34,18 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ChartModule } from 'primeng/chart';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { AccordionModule } from 'primeng/accordion';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TagModule } from 'primeng/tag';
+
+FullCalendarModule.registerPlugins([
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -52,6 +64,7 @@ import { ChartModule } from 'primeng/chart';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FullCalendarModule,
     ButtonModule,
     TableModule,
     BadgeModule,
@@ -75,7 +88,10 @@ import { ChartModule } from 'primeng/chart';
     CheckboxModule,
     AngularSignaturePadModule,
     ToastModule,
-    ChartModule
+    ChartModule,
+    ScrollPanelModule,
+    AccordionModule,
+    TagModule
   ],
   providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]

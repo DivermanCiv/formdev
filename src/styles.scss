@@ -1,3 +1,11 @@
+// temporarily import fullcalendar css
+@import "@fullcalendar/common/main.css";
+@import "@fullcalendar/daygrid/main.css";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
   display: flex;
   margin: 0;
@@ -19,7 +27,6 @@ body {
   cursor: pointer;
 }
 
-
 #absencesDialog .p-dialog .p-dialog-header,
 #manualSigningDialog .p-dialog .p-dialog-header {
   background-color: cornflowerblue;
@@ -29,4 +36,28 @@ body {
 
 #manualSigningDialog .p-dialog .p-dialog-content {
   padding-top: 1em;
+}
+
+.p-scrollpanel {
+  p {
+    padding: .5rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &.custombar1 {
+    .p-scrollpanel-wrapper {
+      border-right: 9px solid var(--layer-1);
+    }
+
+    .p-scrollpanel-bar {
+      background-color: var(--primary-color);
+      opacity: 1;
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: #007ad9;
+      }
+    }
+  }
 }

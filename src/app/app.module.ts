@@ -42,6 +42,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TagModule } from 'primeng/tag';
 import { OnlineStatusComponent } from './online-status/online-status.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -93,7 +95,13 @@ FullCalendarModule.registerPlugins([
     ChartModule,
     ScrollPanelModule,
     AccordionModule,
-    TagModule
+    TagModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]

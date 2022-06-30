@@ -1,6 +1,7 @@
 {
   "name": "formdev",
   "version": "0.0.0",
+  "postinstall": "node remove-css-imports.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,6 +21,9 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@fullcalendar/angular": "^5.11.0",
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/interaction": "^5.11.0",
     "angular2-qrcode": "^2.0.3",
     "chart.js": "^3.8.0",
     "primeicons": "^5.0.0",

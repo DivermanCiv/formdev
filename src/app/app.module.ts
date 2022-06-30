@@ -41,6 +41,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { AccordionModule } from 'primeng/accordion';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TagModule } from 'primeng/tag';
+import { OnlineStatusComponent } from './online-status/online-status.component';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -59,7 +60,8 @@ FullCalendarModule.registerPlugins([
     SignatureComponent,
     QrcodeComponent,
     EmailComponent,
-    ManualComponent
+    ManualComponent,
+    OnlineStatusComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,8 @@
 <layout></layout>
 <router-outlet></router-outlet>
 <p-toast></p-toast>
+<app-online-status
+  [isVisible]="isVisible"
+  [onlineStatusMessage]="connectionStatusMessage"
+  [onlineStatus]="connectionStatus">
+</app-online-status>

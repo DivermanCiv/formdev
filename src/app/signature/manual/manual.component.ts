@@ -1,36 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../../types/Student';
-import { StatusEnum } from '../../types/Status.enum';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Student } from '../../../types/Student';
+import { StatusEnum } from '../../../types/Status.enum';
 import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-detailed-infos-module',
-  templateUrl: './detailed-infos-module.component.html',
-  styleUrls: ['./detailed-infos-module.component.scss']
+  selector: 'app-manual',
+  templateUrl: './manual.component.html',
+  styleUrls: ['./manual.component.scss']
 })
-export class DetailedInfosModuleComponent implements OnInit {
-
+export default class ManualComponent implements OnInit {
   students: Student[] = [];
-  selectedStudents: Student[] = [];
-  selectedPendingStudents: Student[] = [];
-  absenceIndex = 0;
-  showSelectedStudents = false;
-  refreshing = false;
+  selectedStudent: Student | undefined;
   statuses =  [
     { label: this.getReadableStatus(StatusEnum.PENDING), value: StatusEnum.PENDING },
     { label: this.getReadableStatus(StatusEnum.SIGNED), value: StatusEnum.SIGNED },
     { label: this.getReadableStatus(StatusEnum.ABSENT), value: StatusEnum.ABSENT },
   ];
   showDialog = false;
-  id: Observable<number> | undefined;
+  refreshing = false;
+  displaySignedOnlyStudents = false;
 
   constructor(
-    private route: ActivatedRoute,
-    public router: Router,
     private messageService: MessageService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.students = [
@@ -130,7 +123,7 @@ export class DetailedInfosModuleComponent implements OnInit {
         lastName: 'Dupuis',
         status: StatusEnum.PENDING
       },{
-      id: 17,
+        id: 17,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
         status: StatusEnum.PENDING
@@ -154,9 +147,6 @@ export class DetailedInfosModuleComponent implements OnInit {
         status: StatusEnum.PENDING
       },
     ];
-    this.route.params.subscribe(params => {
-      this.id = params['id'];
-    });
   }
 
   public getReadableStatus(status: StatusEnum): string {
@@ -170,14 +160,6 @@ export class DetailedInfosModuleComponent implements OnInit {
     }
   }
 
-  public handleAbsences() {
-    this.absenceIndex = 0;
-
-    if (this.selectedPendingStudents.length > 0) {
-      this.showDialog = true;
-    }
-  }
-
   public handleRefresh() {
     this.refreshing = true;
     this.messageService.add({severity:'info', summary: 'Actualisation en cours', detail: `actualisation de la liste des étudiants`});
@@ -186,34 +168,35 @@ export class DetailedInfosModuleComponent implements OnInit {
     }, 3000);
   }
 
-  public handleNextAbsence(cancelled = false) {
-    // update the state for the current student dialog
-    if (!cancelled) {
-      this.selectedPendingStudents[this.absenceIndex].status = StatusEnum.ABSENT;
-      this.students.concat(this.selectedPendingStudents);
-    }
 
-    // close the dialog if it was the last student selected
-    if (!this.selectedPendingStudents[this.absenceIndex + 1]) {
-      this.showDialog = false;
-      this.selectedStudents = [];
-      this.selectedPendingStudents = [];
-      return;
-    }
-    this.absenceIndex += 1;
-  }
+  handleManualSigning(student: Student) {
+    console.log(student);
 
-  public handleRowSelect(student: Student) {
-    if (student.status === StatusEnum.PENDING) {
-      this.selectedPendingStudents.push(student);
-      console.log(this.selectedPendingStudents);
+    if (this.selectedStudent) {
+      if(this.selectedStudent.signature && this.selectedStudent.status === StatusEnum.SIGNED) {
+        this.messageService.add({severity:'error', summary: 'Erreur', detail: `${this.selectedStudent.firstName} ${this.selectedStudent.lastName} à déjà signé`});
+        return;
+      }
+      this.showDialog = true;
     }
   }
 
-  public handleRowUnSelect(student: Student) {
-    const findIndex = this.selectedPendingStudents.findIndex(p => p.id === student.id);
-    if (findIndex !== undefined) {
-      this.selectedPendingStudents.splice(findIndex, 1);
+  handleStudentSigning(event: any) {
+    if (event.closeDialog) {
+      this.showDialog = !event.closeDialog;
+    }
+
+    if (this.selectedStudent) {
+      const findSudent = this.students.find(p => p === this.selectedStudent);
+      if (findSudent) {
+        findSudent.signature = event.signature;
+        findSudent.status = StatusEnum.SIGNED
+        this.messageService.add({severity:'success', summary: 'Info', detail: `${findSudent.firstName} ${findSudent.lastName} à bien signé`});
+      }
+
+
+      // console.log(this.students);
+
     }
   }
 }

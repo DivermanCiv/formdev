@@ -1,9 +1,27 @@
-.emargement{
+:host {
+  display: flex;
+  justify-content: space-evenly;
+  height: calc(100% - 6vw);
+  flex: 1;
+
+  & > div {
+    flex: 1;
     display: flex;
-    flex-direction: column;
+  }
+
+  & > div:first-child {
+    align-items: center;
+  }
 }
+
 h1 {
     text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .button1{
@@ -25,7 +43,6 @@ h1 {
     height: auto;
     display: flex;
     font-weight: bold;
-    width: 100%;
     margin-bottom: 1%;
 }
 

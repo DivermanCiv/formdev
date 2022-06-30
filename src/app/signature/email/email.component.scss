@@ -1,26 +1,30 @@
 :host {
   display: flex;
+  justify-content: space-between;
   flex: 1;
-  max-height: 100vh;
-  padding-bottom: 2em;
+}
 
-  & .left, .right {
-    flex: 1;
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .switch {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
   }
 
-  & .right {
-    flex: 2;
+  & .switch-label {
+    max-width: 142px;
   }
 }
 
 .students {
-  width: 80%;
-  max-height: 80%;
-  min-height: 80%;
+  max-width: 700px;
+  min-height: 100%;
+  max-height: 60%;
+  flex: 1;
 
   & .footer {
     display: flex;
@@ -38,9 +42,7 @@
   }
 }
 
-.p-datatable-tfoot {
-  background-color: red !important;
-}
+
 .customer-badge {
   border-radius: 2px;
   padding: .25em .5rem;
@@ -62,41 +64,4 @@
       color: #256029;
     }
   }
-}
-
-.dialog-actions {
-  display: flex;
-  justify-content: space-between;
-}
-.dialog-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.content-title {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  font-size: 1.3em;
-}
-
-.not-current {
-  display: none;
-}
-
-.comment-label {
-  display: flex;
-  align-items: center;
-
-  & p {
-    color: red;
-  }
-}
-
-.custom-button {
-  min-width: 200px;
-  text-align: center;
-}
-
-.module-info {
-  margin-bottom: 3em;
 }

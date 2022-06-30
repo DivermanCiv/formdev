@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AngularSignaturePadModule } from '@almothafar/angular-signature-pad';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmargementComponent } from './emargement/emargement/emargement.component';
+import SignatureComponent from './signature/signature.component';
 import {ConnectionComponent} from "./connection/connection.component";
 import { DetailedInfosModuleComponent } from './detailed-infos-module/detailed-infos-module.component';
 import { TableModule } from 'primeng/table';
@@ -24,7 +25,15 @@ import {MessageModule} from "primeng/message";
 import { SignaturePanelComponent } from './signature-panel/signature-panel.component';
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
+import { QRCodeModule } from 'angular2-qrcode';
 import { AuthGuard } from './helpers/authGuard';
+import QrcodeComponent from './signature/qrcode/qrcode.component';
+import EmailComponent from './signature/email/email.component';
+import ManualComponent from './signature/manual/manual.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -35,7 +44,10 @@ import { AuthGuard } from './helpers/authGuard';
     ConnectionComponent,
     LayoutComponent,
     SignaturePanelComponent,
-    EmargementComponent
+    SignatureComponent,
+    QrcodeComponent,
+    EmailComponent,
+    ManualComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +70,14 @@ import { AuthGuard } from './helpers/authGuard';
     FormsModule,
     ReactiveFormsModule,
     MessageModule,
-    CardModule
+    CardModule,
+    QRCodeModule,
+    CheckboxModule,
+    AngularSignaturePadModule,
+    ToastModule,
+    ChartModule
   ],
-  providers: [AuthGuard],
+  providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

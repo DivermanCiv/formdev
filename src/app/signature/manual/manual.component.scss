@@ -1,0 +1,76 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  & .checkbox-label {
+    max-width: 142px;
+  }
+}
+
+.students {
+  max-width: 700px;
+  min-height: 100%;
+  max-height: 60%;
+  flex: 1;
+
+  tr:hover {
+    background-color: rgba(cornflowerblue, 0.4);
+    cursor: pointer;
+  }
+
+  img {
+    height: 100px;
+  }
+
+  & .footer {
+    display: flex;
+    min-height: 3em;
+    align-items: center;
+    color: white;
+    justify-content: flex-end;
+    background-color: cornflowerblue;
+    padding: 0 1em;
+
+    & :nth-child(n) {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+
+.customer-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+  &.status {
+    &-absent {
+      background-color: #ffcdd2;
+      color: #c63737;
+    }
+    &-pending {
+      background-color: #ffd8b2;
+      color: #805b36;
+    }
+    &-signed{
+      background-color: #c8e6c9;
+      color: #256029;
+    }
+  }
+}

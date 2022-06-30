@@ -1,0 +1,18 @@
+:host {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  flex-direction: column;
+  border-color: black;
+  padding: 10px;
+  display: flex;
+}
+
+.qrcode {
+  border: solid 2px;
+  padding: 0.5em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}

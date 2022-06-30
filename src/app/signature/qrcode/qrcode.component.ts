@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qrcode',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qrcode.component.scss']
 })
 export default class QrcodeComponent implements OnInit {
+  id: Observable<number> | undefined;
+  data: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+  ) {
   }
 
+  ngOnInit(): void {
+    if (this.route.parent) {
+      this.route.parent.params.subscribe(params => {
+        this.id = params['id'];
+      });
+    }
+  }
 }

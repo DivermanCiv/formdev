@@ -3,6 +3,7 @@ import { Student } from '../../types/Student';
 import { StatusEnum } from '../../types/Status.enum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-detailed-infos-module',
@@ -27,7 +28,8 @@ export class DetailedInfosModuleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -178,7 +180,7 @@ export class DetailedInfosModuleComponent implements OnInit {
 
   public handleRefresh() {
     this.refreshing = true;
-    console.log('Refresh de la liste en cours');
+    this.messageService.add({severity:'info', summary: 'Actualisation en cours', detail: `actualisation de la liste des étudiants`});
     setTimeout(() => {
       this.refreshing = false;
     }, 3000);

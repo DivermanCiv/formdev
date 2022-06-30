@@ -162,7 +162,7 @@ export default class ManualComponent implements OnInit {
 
   public handleRefresh() {
     this.refreshing = true;
-    console.log('Refresh de la liste en cours');
+    this.messageService.add({severity:'info', summary: 'Actualisation en cours', detail: `actualisation de la liste des étudiants`});
     setTimeout(() => {
       this.refreshing = false;
     }, 3000);

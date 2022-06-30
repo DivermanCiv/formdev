@@ -33,6 +33,7 @@ import ManualComponent from './signature/manual/manual.component';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MessageService } from 'primeng/api';
     QRCodeModule,
     CheckboxModule,
     AngularSignaturePadModule,
-    ToastModule
+    ToastModule,
+    ChartModule
   ],
   providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]

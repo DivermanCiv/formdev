@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../types/Student';
 import { StatusEnum } from '../../../types/Status.enum';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-email',
@@ -20,7 +21,9 @@ export default class EmailComponent implements OnInit {
   refreshing = false;
   displaySignedOnlyStudents = false;
 
-  constructor() { }
+  constructor(
+    private messageService: MessageService
+  ) { }
 
   ngOnInit(): void {
     this.students = [
@@ -159,7 +162,7 @@ export default class EmailComponent implements OnInit {
 
   public handleRefresh() {
     this.refreshing = true;
-    console.log('Refresh de la liste en cours');
+    this.messageService.add({severity:'info', summary: 'Actualisation en cours', detail: `actualisation de la liste des étudiants`});
     setTimeout(() => {
       this.refreshing = false;
     }, 3000);
@@ -167,6 +170,6 @@ export default class EmailComponent implements OnInit {
 
 
   sendMails() {
-    alert('envoie des mails en cours (api manquante)')
+    this.messageService.add({severity:'info', summary: 'Envoie des emails', detail: `Envoie des mails en cours (api manquante)`});
   }
 }

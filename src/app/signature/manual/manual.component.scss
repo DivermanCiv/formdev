@@ -1,7 +1,8 @@
 :host {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   flex: 1;
+  margin: 0 3vw;
 }
 
 .actions {
@@ -9,6 +10,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h4 {
+    margin: 1em;
+  }
 
   & .checkbox {
     display: flex;
@@ -22,9 +27,20 @@
 
 .students {
   max-width: 700px;
-  min-height: 100%;
-  max-height: 60%;
+  max-height: 85%;
   flex: 1;
+
+  tr{
+    height: 5vw;
+
+    td {
+      padding: 0 !important;
+
+      span {
+        margin: auto;
+      }
+    }
+  }
 
   tr:hover {
     background-color: rgba(cornflowerblue, 0.4);
@@ -32,7 +48,9 @@
   }
 
   img {
-    height: 100px;
+    max-height: 90%;
+    max-width: 90%;
+    margin: auto;
   }
 
   & .footer {
@@ -40,13 +58,14 @@
     min-height: 3em;
     align-items: center;
     color: white;
-    justify-content: flex-end;
+    justify-content: space-between;
     background-color: cornflowerblue;
     padding: 0 1em;
 
     & :nth-child(n) {
       display: flex;
       align-items: center;
+      margin: 0.2vw 1vw;
     }
   }
 }

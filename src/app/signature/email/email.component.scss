@@ -1,7 +1,6 @@
 :host {
   display: flex;
   justify-content: space-between;
-  flex: 1;
 }
 
 .actions {
@@ -22,9 +21,20 @@
 
 .students {
   max-width: 700px;
-  min-height: 100%;
-  max-height: 60%;
+  max-height: 85%;
   flex: 1;
+
+  tr{
+    height: 5vw;
+
+    & td {
+      padding: 0 !important;
+
+      & span {
+        margin: auto;
+      }
+    }
+  }
 
   & .footer {
     display: flex;
@@ -38,6 +48,20 @@
     & :nth-child(n) {
       display: flex;
       align-items: center;
+    }
+
+    button{
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .p-button-outlined{
+      margin-right: 3vw;
+      margin-left: 1vw;
+    }
+
+    & i {
+      margin: 1vw;
     }
   }
 }

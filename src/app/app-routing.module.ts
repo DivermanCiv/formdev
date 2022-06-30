@@ -5,6 +5,7 @@ import { DetailedInfosModuleComponent } from './detailed-infos-module/detailed-i
 import {AuthGuard} from "./helpers/authGuard";
 import {ModulesComponent} from "./modules/modules.component";
 import { EmargementComponent } from './emargement/emargement/emargement.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {path: '',  redirectTo: 'modules', pathMatch: 'full' },

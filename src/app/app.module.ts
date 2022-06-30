@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmargementComponent } from './emargement/emargement/emargement.component';
@@ -25,6 +24,20 @@ import { SignaturePanelComponent } from './signature-panel/signature-panel.compo
 import { CardModule } from 'primeng/card'
 import { ModulesComponent } from './modules/modules.component';
 import { AuthGuard } from './helpers/authGuard';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import {CheckboxModule} from 'primeng/checkbox';
+import {TabViewModule} from 'primeng/tabview';
+import { CalendarComponent } from './calendar/calendar.component';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -32,10 +45,10 @@ import { AuthGuard } from './helpers/authGuard';
     ConnectionComponent,
     DetailedInfosModuleComponent,
     ModulesComponent,
-    ConnectionComponent,
     LayoutComponent,
     SignaturePanelComponent,
-    EmargementComponent
+    EmargementComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +71,11 @@ import { AuthGuard } from './helpers/authGuard';
     FormsModule,
     ReactiveFormsModule,
     MessageModule,
-    CardModule
+    CardModule,
+    FullCalendarModule,
+    CheckboxModule,
+    TabViewModule,
+    ScrollPanelModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CardModule } from 'primeng/card';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 
 @Component({
   selector: 'modules',

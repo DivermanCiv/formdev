@@ -6,9 +6,11 @@ import { AuthGuard } from './helpers/authGuard';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent {
   title = 'formdev';
 
   ngOnInit() {
   }
+
 }

@@ -1,12 +1,43 @@
-.list{
-    width: 85%;
-    margin: 3vw 7.5%;
+:host{
+    height: calc(100% - 6vw);
 }
 
-.column {
-    float: left;
-    width: 30%;
-    margin: 1.66%;
+.list{ 
+    flex: 1;
+    margin: 2vw 2.5%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(197, 229, 255);
+    height: calc(100% - 6vw);
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.row a {
+    text-decoration: none;
+}
+
+.modules {
+    flex: 1;
+    margin: 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5%;
+    text-decoration: none;
+}
+
+.calendar{
+    flex: 1;
+    margin: 2%;
 }
 
 

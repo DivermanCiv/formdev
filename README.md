@@ -13,6 +13,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Prod server
 
-Run `npm run prod` for a dev server. Navigate to `http://localhost:8080/`.
+Run `npm run prod` for the prod server. Navigate to `http://localhost:8080/`.
 
 [![](https://img.shields.io/badge/github-blue?style=for-the-badge)](https://github.com/DivermanCiv/formdev)

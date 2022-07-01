@@ -19,14 +19,14 @@ export default class SignatureComponent implements OnInit {
           label: 'First Dataset',
           data: [4, 10, 3],
           backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56"
+            "#ff7482",
+            "#72e775",
+            "#ffba76"
           ],
           hoverBackgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56"
+            "#ff7482",
+            "#72e775",
+            "#ffba76"
           ]
         },
       ]

@@ -1,3 +1,4 @@
 <div class="header">
+  <i *ngIf="canGoBack" (click)="back()" class="pi pi-arrow-left header-back-button pointer" style="font-size: 2rem"></i>
   <img [routerLink]="['/']" src="../../assets/form.png" alt="logo" class="logo pointer">
 </div>

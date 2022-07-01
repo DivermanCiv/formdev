@@ -1,19 +1,7 @@
 <div class="actions">
-  <div class="switch mb-1">
-    <span class="switch-label mr-1" >{{displaySignedOnlyStudents ? 'Afficher tout les étudiants' : 'Afficher les étudiants en attente'}}</span>
-    <p-checkbox [(ngModel)]="displaySignedOnlyStudents" [binary]="true"></p-checkbox>
-  </div>
-  <button
-    pButton
-    type="button"
-    class="p-button-outlined p-button-info custom-button"
-    label="Envoyer les mails"
-    [disabled]="selectedStudents.length === 0"
-    [pTooltip]="selectedStudents.length === 0 ?
-     'Sélectionner au moins 1 élève' :
-      'Cliquer pour déclancher l\'envoie des emails de signature'"
-    (click)="sendMails()"
-  ></button>
+  <span
+    class="switch-label mr-1">{{displaySignedOnlyStudents ? 'Afficher tout les étudiants' : 'Afficher les étudiants en attente'}}</span>
+  <p-checkbox [(ngModel)]="displaySignedOnlyStudents" [binary]="true"></p-checkbox>
 </div>
 <p-table
   dataKey="id"
@@ -61,6 +49,17 @@
   </ng-template>
   <ng-template pTemplate="footer">
     <div class="footer">
+      <button
+        pButton
+        type="button"
+        class="p-button-outlined p-button-info custom-button"
+        label="Envoyer les mails"
+        [disabled]="selectedStudents.length === 0"
+        [pTooltip]="selectedStudents.length === 0 ?
+        'Sélectionner au moins 1 élève' :
+          'Cliquer pour déclancher l\'envoie des emails de signature'"
+        (click)="sendMails()"
+      ></button>
       <div>
         {{selectedStudents.length}} élèves sélectionnés
       </div>

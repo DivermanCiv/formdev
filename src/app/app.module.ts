@@ -34,6 +34,22 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ChartModule } from 'primeng/chart';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { AccordionModule } from 'primeng/accordion';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TagModule } from 'primeng/tag';
+import { OnlineStatusComponent } from './online-status/online-status.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AvatarModule } from 'primeng/avatar';
+
+FullCalendarModule.registerPlugins([
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -47,11 +63,13 @@ import { ChartModule } from 'primeng/chart';
     SignatureComponent,
     QrcodeComponent,
     EmailComponent,
-    ManualComponent
+    ManualComponent,
+    OnlineStatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FullCalendarModule,
     ButtonModule,
     TableModule,
     BadgeModule,
@@ -66,8 +84,6 @@ import { ChartModule } from 'primeng/chart';
     CommonModule,
     AppRoutingModule,
     InputTextModule,
-    ButtonModule,
-    FormsModule,
     ReactiveFormsModule,
     MessageModule,
     CardModule,
@@ -75,7 +91,17 @@ import { ChartModule } from 'primeng/chart';
     CheckboxModule,
     AngularSignaturePadModule,
     ToastModule,
-    ChartModule
+    ChartModule,
+    ScrollPanelModule,
+    AccordionModule,
+    TagModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
+    AvatarModule
   ],
   providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]

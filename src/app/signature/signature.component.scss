@@ -2,11 +2,10 @@
   display: flex;
   justify-content: space-evenly;
   height: calc(100% - 6vw);
-  flex: 1;
 
   & > div {
-    flex: 1;
     display: flex;
+    width: 50%;
   }
 
   & > div:first-child {

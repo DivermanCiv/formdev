@@ -1,15 +1,38 @@
-<div class="connection">
-  <h1 class="connection__title">Connectez-vous</h1>
-  <form class="connection__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <div class="connection__form__field">
-      <label for="identifier" class="connection__form__field__label">Identifiant :</label>
-      <input type="text" pInputText class="connection__form__field__input" id="identifier" name="identifier" ngModel required />
+<form class="connection__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+<div class="login-screen">
+  <p-avatar
+    image="assets/emojis.jpg"
+    styleClass="mr-2"
+    size="xlarge"
+    shape="circle"
+  ></p-avatar>
+
+  <h3 class="login-screen__username">FormDev formateur</h3>
+
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <i class="pi pi-arrow-circle-right" *ngIf="form.value"></i>
+      <input
+        (keyup.enter)="onSubmit(form)"
+        type="text"
+        pInputText
+        class="input p-inputtext-sm"
+        id="identifier"
+        name="identifier"
+        placeholder="Identifiant"
+        ngModel
+        required
+      />
+
+      <input
+        (keyup.enter)="onSubmit(form)"
+        placeholder="Mot de passe"
+        type="password" pInputText class="input p-inputtext-sm" id="password" name="password" ngModel required />
     </div>
-    <div class="connection__form__field">
-      <label for="password" class="connection__form__field__label">Mot de passe :</label>
-      <input type="password" pInputText class="connection__form__field__input" id="password" name="password" ngModel required />
-    </div>
-    <button type="submit" pButton class="connection__form__submit" label="Se connecter"></button>
-  </form>
-  <p-message *ngIf="isShown" severity="error" text="Votre identifiant ou mot de passe est invalide" class="connection__form__error"></p-message>
+    <p-message *ngIf="isShown" severity="error" text="Votre identifiant ou mot de passe est invalide" class="connection__form__error"></p-message>
+  </div>
+
+  <button type="submit" pButton class="submit" label="Se connecter"></button>
 </div>
+</form>

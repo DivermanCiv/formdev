@@ -1,9 +1,5 @@
 <div class="actions">
   <h4>Sélectionner un étudiant pour signer</h4>
-  <div class="checkbox mb-1">
-    <span class="checkbox-label mr-1" >{{displaySignedOnlyStudents ? 'Afficher tout les étudiants' : 'Afficher les étudiants en attente'}}</span>
-    <p-checkbox [(ngModel)]="displaySignedOnlyStudents" [binary]="true"></p-checkbox>
-  </div>
 </div>
 <p-table
   dataKey="id"
@@ -17,7 +13,7 @@
   selectionMode="single"
   (onRowSelect)="handleManualSigning($event)"
 >
-  <ng-template pTemplate="header">
+  <ng-template pTemplate="header" class="top-table">
     <tr>
       <th pSortableColumn="firstName">
         Nom
@@ -58,6 +54,10 @@
   <ng-template pTemplate="footer">
     <div class="footer">
       <div>
+        <span class="checkbox-label mr-1" >{{displaySignedOnlyStudents ? 'Afficher tout les étudiants' : 'Afficher les étudiants en attente'}}</span>
+        <p-checkbox [(ngModel)]="displaySignedOnlyStudents" [binary]="true"></p-checkbox>
+      </div>
+      <div>
         <i
           class="pi pointer"
           [class]="refreshing ? 'pi-spin pi-spinner' : 'pi-refresh'"
@@ -70,7 +70,7 @@
 </p-table>
 <p-dialog [(visible)]="showDialog" id="manualSigningDialog" [modal]="true">
   <ng-template pTemplate="header">
-    <span>Pad de signature</span>
+    <span>Pas de signature</span>
   </ng-template>
   <div *ngIf="selectedStudent" class="mb-1">
     <h3>Signature manuelle pour {{selectedStudent.firstName}} {{selectedStudent.lastName}}</h3>

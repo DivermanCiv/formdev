@@ -1,48 +1,52 @@
-<div class="list">
-    <div class="row">
-        <a [routerLink]="['/module', 1]"><p-card header="Cours 1" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-        <a [routerLink]="['/module', 2]"><p-card header="Cours 2" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-        <a [routerLink]="['/module', 3]"><p-card header="Cours 3" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-    </div>
-    <div class="row">
-        <a [routerLink]="['/module', 4]"><p-card header="Cours 4" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-        <a [routerLink]="['/module', 5]"><p-card header="Cours 5" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-        <a [routerLink]="['/module', 6]"><p-card header="Cours 6" class="column">
-            <ul class="elements">
-                <li class="element">Date : 24/03/22 - 28/03/22</li>
-                <li class="element">Lieu : Salle 12</li>
-                <li class="element">Durée : 35h</li>
-            </ul>
-        </p-card></a>
-    </div>
-</div>
+<p-scrollPanel class="list" [style]="{height: '100%'}" styleClass="custombar1">
+  <span class="module__title mb-1">Module en cours</span>
+  <div class="in-progress mb-1">
+    <p-card header="Développement front" class="card pointer mr-1" [routerLink]="['/module', 1]">
+      <p-tag class="live" icon="pi pi-circle-fill" value="en cours" severity="success" [rounded]="true"></p-tag>
+      <ul class="elements">
+        <li class="element">Date : 30/06/22 - 01/07/22</li>
+        <li class="element">Lieu : Salle Rose</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+  </div>
+  <span class="module__title mb-1">Module suivant</span>
+  <div class="next mb-1">
+    <p-card header="DevOps" class="card pointer mr-1 mb-1" [routerLink]="['/module', 2]">
+      <ul class="elements">
+        <li class="element">Date : 03/07/22 - 07/07/22</li>
+        <li class="element">Lieu : Salle Alfred Hitchcock</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+    <p-card header="Html css" class="card pointer mr-1 mb-1" [routerLink]="['/module', 3]">
+      <ul class="elements">
+        <li class="element">Date : 10/07/22 - 14/07/22</li>
+        <li class="element">Lieu : Salle 9</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+    <p-card header="Python" class="card pointer mr-1 mb-1" [routerLink]="['/module', 4]">
+      <ul class="elements">
+        <li class="element">Date : 16/07/22 - 20/07/22</li>
+        <li class="element">Lieu : Salle 12</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+    <p-card header="Gestion de projet" class="card pointer mr-1 mb-1" [routerLink]="['/module', 5]">
+      <ul class="elements">
+        <li class="element">Date : 22/07/22 - 26/07/22</li>
+        <li class="element">Lieu : Salle à mandre</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+    <p-card header="Passage de l'oral" class="card pointer mr-1 mb-1" [routerLink]="['/module', 6]">
+      <ul class="elements">
+        <li class="element">Date : 28/07/22 - 01/08/22</li>
+        <li class="element">Lieu : Salle Batcave</li>
+        <li class="element">Durée : 35h</li>
+      </ul>
+    </p-card>
+  </div>
+</p-scrollPanel>
+<full-calendar [options]="calendarOptions" class="calendar"></full-calendar>

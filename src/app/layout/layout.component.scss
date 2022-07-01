@@ -7,9 +7,15 @@
   display: flex;
   justify-content: center;
   padding: 1em;
+  align-items: center;
 }
 
 .logo{
   height: 100%;
   // margin: 1vw 42%;
+}
+
+.header-back-button {
+  position: absolute;
+  left: 2em;
 }

@@ -14,6 +14,7 @@ export class DetailedInfosModuleComponent implements OnInit {
 
   students: Student[] = [];
   selectedStudents: Student[] = [];
+  editedStudent: Student | undefined;
   selectedPendingStudents: Student[] = [];
   absenceIndex = 0;
   showSelectedStudents = false;
@@ -24,7 +25,11 @@ export class DetailedInfosModuleComponent implements OnInit {
     { label: this.getReadableStatus(StatusEnum.ABSENT), value: StatusEnum.ABSENT },
   ];
   showDialog = false;
+  showDetailDialog = false;
+  showEndDialog = false;
   id: Observable<number> | undefined;
+  isModuleEnded = false;
+  endSignatureSrc: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -38,120 +43,160 @@ export class DetailedInfosModuleComponent implements OnInit {
         id: 1,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 2,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 3,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 4,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 5,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 6,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 7,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 8,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 9,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 10,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 11,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 12,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 13,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 14,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 15,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 16,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },{
-      id: 17,
+        id: 17,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 18,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 19,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 20,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
     ];
     this.route.params.subscribe(params => {
@@ -175,6 +220,28 @@ export class DetailedInfosModuleComponent implements OnInit {
 
     if (this.selectedPendingStudents.length > 0) {
       this.showDialog = true;
+    }
+  }
+
+  public handleEditStudent(id: number) {
+    this.showDetailDialog = true;
+    const currentStudent = this.students.find(p => p.id === id);
+
+    if (currentStudent) {
+      this.editedStudent = currentStudent;
+    }
+  }
+
+  handleStudentInfos() {
+
+    this.showDetailDialog = false;
+
+    if (this.editedStudent) {
+      let findStudent = this.students.find(p => p === this.editedStudent);
+      if (findStudent) {
+        findStudent = this.editedStudent;
+        this.messageService.add({severity:'success', summary: 'Info', detail: `Les informations de ${findStudent.firstName} ${findStudent.lastName} ont bien été modifiées`});
+      }
     }
   }
 
@@ -215,5 +282,17 @@ export class DetailedInfosModuleComponent implements OnInit {
     if (findIndex !== undefined) {
       this.selectedPendingStudents.splice(findIndex, 1);
     }
+  }
+
+  public handleEndModuleDialog() {
+    this.showEndDialog = true;
+  }
+
+  public handleEndModule(event: any) {
+    this.endSignatureSrc = event.signature;
+    this.isModuleEnded = true;
+
+    this.showEndDialog = false;
+    this.messageService.add({severity: 'success', summary: 'Module fermé', detail: `le module à bien été validé`});
   }
 }

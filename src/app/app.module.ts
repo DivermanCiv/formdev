@@ -44,6 +44,7 @@ import { TagModule } from 'primeng/tag';
 import { OnlineStatusComponent } from './online-status/online-status.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AvatarModule } from 'primeng/avatar';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -99,7 +100,8 @@ FullCalendarModule.registerPlugins([
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    AvatarModule
   ],
   providers: [ AuthGuard, MessageService ],
   bootstrap: [AppComponent]

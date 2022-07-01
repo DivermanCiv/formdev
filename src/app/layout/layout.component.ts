@@ -24,7 +24,7 @@ export class LayoutComponent {
       filter(event => event instanceof NavigationEnd)
     )
       .subscribe((event: any) => {
-        this.canGoBack = !!(this.router.getCurrentNavigation()?.previousNavigation);
+        this.canGoBack = !!(this.router.getCurrentNavigation()?.previousNavigation) && event.urlAfterRedirects !== '/connect';
 
         if (event.urlAfterRedirects === '/modules') {
           this.canGoBack = false;

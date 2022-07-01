@@ -68,6 +68,9 @@
             </p-columnFilter>
           </div>
         </th>
+        <th>
+          Actions
+        </th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-student>
@@ -76,6 +79,10 @@
         <td>{{student.lastName}}</td>
         <td>
           <span [class]="'customer-badge status-' + student.status">{{getReadableStatus(student.status)}}</span>
+        </td>
+        <td>
+          <button pButton pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-text" (click)="handleEditStudent(student.id)"></button>
+        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="footer">
@@ -125,5 +132,29 @@
         Confirmer
       </button>
     </div>
+  </div>
+</p-dialog>
+<p-dialog [(visible)]="showDetailDialog" *ngIf="editedStudent">
+  <ng-template pTemplate="header" class="title">
+    <span style="margin-right: 2vw;">Modifier les informations</span>
+  </ng-template>
+  <div class="form">
+    <span class="row">
+      <label for="float-input">Prénom : </label>
+      <input id="float-input" type="text" placeholder={{editedStudent.firstName}} pInputText [(ngModel)]="editedStudent.firstName"> 
+    </span>
+    <span class="row">
+      <label for="float-input">Nom : </label>
+      <input id="float-input" type="text" placeholder={{editedStudent.lastName}} pInputText [(ngModel)]="editedStudent.lastName"> 
+    </span>
+    <span class="row">
+      <label for="float-input">Email : </label>
+      <input id="float-input" type="text" placeholder={{editedStudent.email}} pInputText [(ngModel)]="editedStudent.email"> 
+    </span>
+    <span class="row">
+      <label for="float-input">Numéro : </label>
+      <input id="float-input" type="text" placeholder={{editedStudent.numberPhone}} pInputText [(ngModel)]="editedStudent.numberPhone"> 
+    </span>
+    <p-button label="Modifier" (onClick)="handleStudentInfos()"></p-button>
   </div>
 </p-dialog>

@@ -99,3 +99,18 @@
 .module-info {
   margin-bottom: 3em;
 }
+
+.title{
+  margin-right: 2vw;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+
+  & input {
+    width: 100%;
+    margin: 1vw 1vw 1.5vw;
+  }
+}

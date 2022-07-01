@@ -31,120 +31,160 @@ export default class EmailComponent implements OnInit {
         id: 1,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 2,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 3,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 4,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 5,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 6,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 7,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 8,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 9,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 10,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 11,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.SIGNED
+        status: StatusEnum.SIGNED,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 12,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 13,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 14,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 15,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 16,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },{
         id: 17,
         firstName: 'Jean Louis',
         lastName: 'Hagrah',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 18,
         firstName: 'Jonas',
         lastName: 'Trochet',
-        status: StatusEnum.ABSENT
+        status: StatusEnum.ABSENT,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 19,
         firstName: 'Swann',
         lastName: 'Leroy',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
       {
         id: 20,
         firstName: 'Adam',
         lastName: 'Dupuis',
-        status: StatusEnum.PENDING
+        status: StatusEnum.PENDING,
+        numberPhone: '06 89 76 56 40',
+        email: 'etudiant.form.dev@gmail.com'
       },
     ];
   }

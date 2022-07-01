@@ -7,5 +7,7 @@ export interface Student {
   firstName: string;
   lastName: string;
   status: StatusEnum;
+  numberPhone: string;
+  email: string;
   signature?: string;
 }

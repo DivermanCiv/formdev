@@ -15,6 +15,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    max-height: 100px;
+  }
 }
 
 .students {
@@ -22,6 +26,15 @@
   max-height: 85%;
   width: 100%;
   flex: 1;
+
+  @media screen and (max-width: 700px) {
+    overflow: auto;
+
+    tr {
+      font-size: 0.1em;
+    }
+
+  }
 
   tr{
     height: 5vw;

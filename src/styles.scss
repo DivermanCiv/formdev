@@ -70,3 +70,34 @@ body {
     }
   }
 }
+
+
+// badge status
+.customer-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+  max-height: 100%;
+
+  &.status {
+    &-absent {
+      background-color: #ffcdd2;
+      color: #c63737;
+    }
+    &-pending {
+      background-color: #ffd8b2;
+      color: #805b36;
+    }
+    &-signed{
+      background-color: #c8e6c9;
+      color: #256029;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 0.2em;
+  }
+}

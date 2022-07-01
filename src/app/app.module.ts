@@ -45,6 +45,7 @@ import { OnlineStatusComponent } from './online-status/online-status.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AvatarModule } from 'primeng/avatar';
+import { InternSignatureComponent } from './intern-signature/intern-signature.component';
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -64,7 +65,8 @@ FullCalendarModule.registerPlugins([
     QrcodeComponent,
     EmailComponent,
     ManualComponent,
-    OnlineStatusComponent
+    OnlineStatusComponent,
+    InternSignatureComponent
   ],
   imports: [
     BrowserModule,

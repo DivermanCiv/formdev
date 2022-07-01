@@ -8,6 +8,7 @@ import SignatureComponent from './signature/signature.component';
 import QrcodeComponent from './signature/qrcode/qrcode.component';
 import ManualComponent from './signature/manual/manual.component';
 import EmailComponent from './signature/email/email.component';
+import { InternSignatureComponent } from './intern-signature/intern-signature.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'modules', pathMatch: 'full'},
@@ -22,7 +23,7 @@ const routes: Routes = [
       {path: 'email', component: EmailComponent},
     ]
   },
-  { path: 'intern/module/:id', component: ManualComponent}
+  { path: 'intern/module/:id', component: InternSignatureComponent}
 ];
 
 @NgModule({

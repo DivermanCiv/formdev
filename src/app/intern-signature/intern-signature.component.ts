@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../../../types/Student';
-import { StatusEnum } from '../../../types/Status.enum';
+import { Student } from '../../types/Student';
+import { StatusEnum } from '../../types/Status.enum';
 import { MessageService } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-manual',
-  templateUrl: './manual.component.html',
-  styleUrls: ['./manual.component.scss']
+  selector: 'app-intern-signature',
+  templateUrl: './intern-signature.component.html',
+  styleUrls: ['./intern-signature.component.scss']
 })
-export default class ManualComponent implements OnInit {
+export class InternSignatureComponent implements OnInit {
   students: Student[] = [];
   selectedStudent: Student | undefined;
   statuses =  [
@@ -19,13 +20,21 @@ export default class ManualComponent implements OnInit {
   showDialog = false;
   refreshing = false;
   displaySignedOnlyStudents = false;
+  id: number | undefined;
 
   constructor(
-    private messageService: MessageService
+    private messageService: MessageService,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
+    if (this.route) {
+      this.route.params.subscribe(params => {
+        this.id = params['id'];
+        console.log(this.id);
+      });
+    }
     this.students = [
       {
         id: 1,
@@ -237,4 +246,5 @@ export default class ManualComponent implements OnInit {
 
     }
   }
+
 }

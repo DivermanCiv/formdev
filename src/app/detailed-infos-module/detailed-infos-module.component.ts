@@ -26,7 +26,10 @@ export class DetailedInfosModuleComponent implements OnInit {
   ];
   showDialog = false;
   showDetailDialog = false;
+  showEndDialog = false;
   id: Observable<number> | undefined;
+  isModuleEnded = false;
+  endSignatureSrc: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -279,5 +282,17 @@ export class DetailedInfosModuleComponent implements OnInit {
     if (findIndex !== undefined) {
       this.selectedPendingStudents.splice(findIndex, 1);
     }
+  }
+
+  public handleEndModuleDialog() {
+    this.showEndDialog = true;
+  }
+
+  public handleEndModule(event: any) {
+    this.endSignatureSrc = event.signature;
+    this.isModuleEnded = true;
+
+    this.showEndDialog = false;
+    this.messageService.add({severity: 'success', summary: 'Module fermé', detail: `le module à bien été validé`});
   }
 }

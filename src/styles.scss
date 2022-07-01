@@ -37,8 +37,8 @@ body {
   font-size: 1.4em;
 }
 
-
-#manualSigningDialog .p-dialog .p-dialog-content {
+#manualSigningDialog .p-dialog .p-dialog-content,
+#moduleEndDialog .p-dialog .p-dialog-content {
   padding-top: 1em;
 }
 

@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./qrcode.component.scss']
 })
 export default class QrcodeComponent implements OnInit {
-  id: Observable<number> | undefined;
+  id: number | undefined;
   data: any;
 
   constructor(
@@ -20,6 +20,7 @@ export default class QrcodeComponent implements OnInit {
     if (this.route.parent) {
       this.route.parent.params.subscribe(params => {
         this.id = params['id'];
+        console.log(this.id);
       });
     }
   }

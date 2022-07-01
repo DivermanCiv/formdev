@@ -38,9 +38,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.connectionStatus = 'offline';
       console.log('Offline...');
     }));
-
-
-    console.log('coucouc moi');
   }
 
   ngOnDestroy(): void {

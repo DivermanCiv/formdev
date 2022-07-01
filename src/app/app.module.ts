@@ -83,8 +83,6 @@ FullCalendarModule.registerPlugins([
     CommonModule,
     AppRoutingModule,
     InputTextModule,
-    ButtonModule,
-    FormsModule,
     ReactiveFormsModule,
     MessageModule,
     CardModule,
